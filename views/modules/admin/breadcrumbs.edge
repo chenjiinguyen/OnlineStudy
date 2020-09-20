@@ -1,0 +1,5 @@
+<ol class="breadcrumb m-0">
+    @each(breadcrumb in breadcrumbs)
+        <li class="breadcrumb-item"><a href="{{breadcrumb.url}}">{{breadcrumb.name}}</a></li>
+    @endeach
+</ol>

@@ -1,0 +1,33 @@
+<div id="sidebar-menu">
+
+    <ul class="metismenu" id="side-menu">
+
+    @each(nav in config.navigation)
+        <li class="menu-title">{{nav.menu_title}}</li>
+        @each(menu_item in nav.menu)
+        <li>
+            @if(menu_item.child_menu.length > 0)
+            <a href="javascript: void(0);">
+            @else
+            <a href="{{menu_item.link}}">
+            @endif
+                <i class="{{menu_item.icon}}"></i>
+                <span> {{menu_item.name}} </span>
+            @if(menu_item.child_menu.length > 0)
+                <span class="menu-arrow"></span>
+            <ul class="nav-second-level" aria-expanded="false">
+            @each(child_menu in menu_item.child_menu)
+                <li>
+                <a href="{{child_menu.link}}">{{child_menu.name}}</a>
+                </li>
+            @endeach
+            </ul>
+            @endif
+            </a>
+        </li>
+        @endeach
+    @endeach     
+
+    </ul>
+
+</div>
